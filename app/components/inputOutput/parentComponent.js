@@ -9,16 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+// inline binding example:
+// accessing value in angular2 is #parentValue is my id and accessing value through (parent.value) in this case we are passing this value to child element
+/*@Component ({
+    selector: "parent-element",
+    template: ` <h3>This is parent  element </h3> <div class="jumbotron">
+    <label>Parent:</label><input type="text" #parentValue (keyup)="0" >
+     <p>Printed Data from parent element and visible in child element <b>{{getParentData}}</b> </p></div>
+     <child-element [getParentData]="parentValue.value"></child-element>`,
+    styles: [`.jumbotron{ padding:10px;} .jumbotron p {padding:20px}`]
+}) */
+//funtion binding exmaple:
+// call function on event and passs the id value in the argument and set later in parameter
 var ParentElement = (function () {
     function ParentElement() {
     }
-    ParentElement.prototype.updateChildValue = function (element) {
-        this.setChildValue = element.value;
+    //public getChildData:string[];
+    ParentElement.prototype.updateChildValue = function (e) {
+        this.setChildValue = e;
     };
     ParentElement = __decorate([
         core_1.Component({
             selector: "parent-element",
-            template: " <h3>This is from  child element </h3> <div class=\"jumbotron\">\n    <label>Parent:</label><input type=\"text\" (onChange)=\"updateChildValue(element)\" ></div> <child-element [getParentData]=\"setChildValue\"></child-element>"
+            template: " <h3>This is parent  element </h3> <div class=\"jumbotron\">\n    <label>Parent:</label><input type=\"text\" #parentValue (keyup)=\"updateChildValue(parentValue.value)\" >     \n     <p>Printed Data from parent element and visible in child element <b>{{getParentData}}</b> </p></div>\n     <child-element [getParentData]=\"setChildValue\"></child-element>",
+            styles: [".jumbotron{ padding:10px;} .jumbotron p {padding:20px}"]
         }), 
         __metadata('design:paramtypes', [])
     ], ParentElement);

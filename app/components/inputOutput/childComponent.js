@@ -12,16 +12,22 @@ var core_1 = require('@angular/core');
 var ChildElement = (function () {
     function ChildElement() {
     }
-    ChildElement.prototype.onNgChanges = function () {
+    ChildElement.prototype.updateValueToParent = function (e) {
+        // this.sendChildData.emit(e);
     };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Object)
+        __metadata('design:type', Array)
     ], ChildElement.prototype, "getParentData", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Array)
+    ], ChildElement.prototype, "sendChildData", void 0);
     ChildElement = __decorate([
         core_1.Component({
             selector: "child-element",
-            template: " <h3>This is from  parent  element {{getParentData}} </h3> <div class=\"jumbotron\"><label>Child:</label><input type=\"text\"></div>"
+            template: " <h3>This is  child  element </h3> <div class=\"jumbotron\"><label>Child:</label>\n           <input type=\"text\" #ChildElement (keyup)=\"updateValueToParent(ChildElement.value)\">\n         <p>Printed Data from child element and visible in parent element <b>{{getParentData}}</b> </p>\n    </div>",
+            styles: [".jumbotron{ padding:10px;} .jumbotron p {padding:20px}"]
         }), 
         __metadata('design:paramtypes', [])
     ], ChildElement);
