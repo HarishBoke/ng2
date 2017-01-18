@@ -28,10 +28,13 @@ var ParentElement = (function () {
     ParentElement.prototype.updateChildValue = function (e) {
         this.setChildValue = e;
     };
+    ParentElement.prototype.getDataFromChild = function (message) {
+        this.childValue = message;
+    };
     ParentElement = __decorate([
         core_1.Component({
             selector: "parent-element",
-            template: " <h3>This is parent  element </h3> <div class=\"jumbotron\">\n    <label>Parent:</label><input type=\"text\" #parentValue (keyup)=\"updateChildValue(parentValue.value)\" >     \n     <p>Printed Data from parent element and visible in child element <b>{{getParentData}}</b> </p></div>\n     <child-element [getParentData]=\"setChildValue\"></child-element>",
+            template: " <h3>This is parent  element </h3> <div class=\"jumbotron\">\n    <label>Parent:</label><input type=\"text\" #parentValue (keyup)=\"updateChildValue(parentValue.value)\" >     \n     <p>Printed Data from  child element <b>{{childValue}}</b> </p></div>\n     <child-element [getParentData]=\"setChildValue\" (sendChildData)=\"getDataFromChild($event)\"></child-element>",
             styles: [".jumbotron{ padding:10px;} .jumbotron p {padding:20px}"]
         }), 
         __metadata('design:paramtypes', [])

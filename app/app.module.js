@@ -22,6 +22,10 @@ var dashboardComponent_1 = require('./components/dashboard/dashboardComponent');
 var inputOutputComponent_1 = require('./components/inputOutput/inputOutputComponent');
 var parentComponent_1 = require('./components/inputOutput/parentComponent');
 var childComponent_1 = require('./components/inputOutput/childComponent');
+// for inputOutput custom event
+var io_custom_event_1 = require('./components/IO_custom_event/io_custom_event');
+var parentComponent_2 = require('./components/IO_custom_event/parentComponent');
+var childComponent_2 = require('./components/IO_custom_event/childComponent');
 //import {AreaChartComponent} from './components/shared/charts/area-chart/AreaChartComponent';
 //lib or thirdParty
 //import { CHART_DIRECTIVES } from 'ng2-charts/ng2-charts';
@@ -41,11 +45,12 @@ var AppModule = (function () {
                     { 'path': 'login', component: loginComponent_1.Login },
                     { 'path': 'welcome', component: welcomeComponent_1.Welcome },
                     { 'path': 'dashboard', component: dashboardComponent_1.DashboardComponent },
-                    { 'path': 'inputOutput', component: inputOutputComponent_1.InputOutput }
+                    { 'path': 'inputOutput', component: inputOutputComponent_1.InputOutput },
+                    { 'path': 'io-customEvent', component: io_custom_event_1.IOcustomEvent }
                 ])
             ],
             declarations: [appComponent_1.AppComponent, loginComponent_1.Login, welcomeComponent_1.Welcome, userProfileComponent_1.UserProfile, headerComponent_1.HeaderComponent, sidebarComponent_1.SidebarComponent, dashboardComponent_1.DashboardComponent,
-                inputOutputComponent_1.InputOutput, parentComponent_1.ParentElement, childComponent_1.ChildElement],
+                inputOutputComponent_1.InputOutput, parentComponent_1.ParentElement, childComponent_1.ChildElement, io_custom_event_1.IOcustomEvent, parentComponent_2.IOParentElement, childComponent_2.IOChildElement],
             bootstrap: [appComponent_1.AppComponent],
         }), 
         __metadata('design:paramtypes', [])

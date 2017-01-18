@@ -16,6 +16,13 @@ import {InputOutput} from './components/inputOutput/inputOutputComponent';
 import {ParentElement} from './components/inputOutput/parentComponent';
 import {ChildElement} from './components/inputOutput/childComponent';
 
+
+// for inputOutput custom event
+import {IOcustomEvent} from './components/IO_custom_event/io_custom_event';
+import {IOParentElement} from './components/IO_custom_event/parentComponent';
+import {IOChildElement} from './components/IO_custom_event/childComponent';
+
+
 //import {AreaChartComponent} from './components/shared/charts/area-chart/AreaChartComponent';
 
 
@@ -36,11 +43,12 @@ import {ChildElement} from './components/inputOutput/childComponent';
       {'path':'login', component:Login},
       {'path':'welcome', component:Welcome},
       {'path':'dashboard',component:DashboardComponent},
-      {'path': 'inputOutput', component:InputOutput}
+      {'path': 'inputOutput', component:InputOutput},
+      {'path':'io-customEvent', component:IOcustomEvent}
     ])
  ],
   declarations: [ AppComponent, Login, Welcome, UserProfile, HeaderComponent, SidebarComponent, DashboardComponent,
-   InputOutput, ParentElement, ChildElement],
+   InputOutput, ParentElement, ChildElement, IOcustomEvent, IOParentElement, IOChildElement],
   bootstrap:    [ AppComponent ],
   //providers: [IncomeService,UserService]
 })

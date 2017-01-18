@@ -9,32 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var ChildElement = (function () {
-    function ChildElement() {
-        // Output method
-        //sendChildData will access as method in parent Component, emit kind of broadcast value to parent and we access it by $event
-        this.sendChildData = new core_1.EventEmitter();
+var IOChildElement = (function () {
+    function IOChildElement() {
+        //  @Input() getParentData:string[];
+        this.tripleClick = new core_1.EventEmitter();
+        this.counter = 0;
     }
-    ChildElement.prototype.updateParentValue = function (e) {
-        this.sendChildData.emit(e);
+    IOChildElement.prototype.setTripleClick = function (e) {
+        this.counter++;
+        if (this.counter > 2) {
+            this.tripleClick.emit(e);
+            this.counter = 0;
+        }
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Array)
-    ], ChildElement.prototype, "getParentData", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)
-    ], ChildElement.prototype, "sendChildData", void 0);
-    ChildElement = __decorate([
+    ], IOChildElement.prototype, "tripleClick", void 0);
+    IOChildElement = __decorate([
         core_1.Component({
-            selector: "child-element",
-            template: " <h3>This is  child  element </h3> <div class=\"jumbotron\"><label>Child:</label>\n           <input type=\"text\" #childValue (keyup)=\"updateParentValue(childValue.value)\">\n         <p>Printed Data from parent element <b>{{getParentData}}</b> </p>\n    </div>",
+            selector: "io-child-element",
+            template: " <h3>This is  child  element </h3> <div class=\"jumbotron\"><label>Child:</label>\n    <button class=\"btn btn-primary\" (click)=\"setTripleClick('Harish')\">click here thrice!</button>\n    </div>",
             styles: [".jumbotron{ padding:10px;} .jumbotron p {padding:20px}"]
         }), 
         __metadata('design:paramtypes', [])
-    ], ChildElement);
-    return ChildElement;
+    ], IOChildElement);
+    return IOChildElement;
 }());
-exports.ChildElement = ChildElement;
+exports.IOChildElement = IOChildElement;
 //# sourceMappingURL=childComponent.js.map
