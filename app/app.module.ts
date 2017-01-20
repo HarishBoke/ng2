@@ -22,10 +22,14 @@ import {IOcustomEvent} from './components/IO_custom_event/io_custom_event';
 import {IOParentElement} from './components/IO_custom_event/parentComponent';
 import {IOChildElement} from './components/IO_custom_event/childComponent';
 
+// for inputOutput memory game
+import {IOgame} from './components/IO_memoryGame/io-game';
+import {IOgameParent} from './components/IO_memoryGame/io-parentComponent';
+import {IOgameChild} from './components/IO_memoryGame/io-childComponent';
 
 //import {AreaChartComponent} from './components/shared/charts/area-chart/AreaChartComponent';
 
-
+import {IOgameService} from "./services/ioGameService";
 
 //lib or thirdParty
 //import { CHART_DIRECTIVES } from 'ng2-charts/ng2-charts';
@@ -44,12 +48,13 @@ import {IOChildElement} from './components/IO_custom_event/childComponent';
       {'path':'welcome', component:Welcome},
       {'path':'dashboard',component:DashboardComponent},
       {'path': 'inputOutput', component:InputOutput},
-      {'path':'io-customEvent', component:IOcustomEvent}
+      {'path':'io-customEvent', component:IOcustomEvent},
+      {'path':'io-game', component:IOgame} 
     ])
  ],
   declarations: [ AppComponent, Login, Welcome, UserProfile, HeaderComponent, SidebarComponent, DashboardComponent,
-   InputOutput, ParentElement, ChildElement, IOcustomEvent, IOParentElement, IOChildElement],
+  InputOutput, ParentElement, ChildElement, IOcustomEvent, IOParentElement, IOChildElement, IOgame, IOgameParent, IOgameChild],
   bootstrap:    [ AppComponent ],
-  //providers: [IncomeService,UserService]
+  providers: [ IOgameService ]
 })
 export class AppModule { }

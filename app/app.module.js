@@ -26,7 +26,12 @@ var childComponent_1 = require('./components/inputOutput/childComponent');
 var io_custom_event_1 = require('./components/IO_custom_event/io_custom_event');
 var parentComponent_2 = require('./components/IO_custom_event/parentComponent');
 var childComponent_2 = require('./components/IO_custom_event/childComponent');
+// for inputOutput memory game
+var io_game_1 = require('./components/IO_memoryGame/io-game');
+var io_parentComponent_1 = require('./components/IO_memoryGame/io-parentComponent');
+var io_childComponent_1 = require('./components/IO_memoryGame/io-childComponent');
 //import {AreaChartComponent} from './components/shared/charts/area-chart/AreaChartComponent';
+var ioGameService_1 = require("./services/ioGameService");
 //lib or thirdParty
 //import { CHART_DIRECTIVES } from 'ng2-charts/ng2-charts';
 //import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -46,12 +51,14 @@ var AppModule = (function () {
                     { 'path': 'welcome', component: welcomeComponent_1.Welcome },
                     { 'path': 'dashboard', component: dashboardComponent_1.DashboardComponent },
                     { 'path': 'inputOutput', component: inputOutputComponent_1.InputOutput },
-                    { 'path': 'io-customEvent', component: io_custom_event_1.IOcustomEvent }
+                    { 'path': 'io-customEvent', component: io_custom_event_1.IOcustomEvent },
+                    { 'path': 'io-game', component: io_game_1.IOgame }
                 ])
             ],
             declarations: [appComponent_1.AppComponent, loginComponent_1.Login, welcomeComponent_1.Welcome, userProfileComponent_1.UserProfile, headerComponent_1.HeaderComponent, sidebarComponent_1.SidebarComponent, dashboardComponent_1.DashboardComponent,
-                inputOutputComponent_1.InputOutput, parentComponent_1.ParentElement, childComponent_1.ChildElement, io_custom_event_1.IOcustomEvent, parentComponent_2.IOParentElement, childComponent_2.IOChildElement],
+                inputOutputComponent_1.InputOutput, parentComponent_1.ParentElement, childComponent_1.ChildElement, io_custom_event_1.IOcustomEvent, parentComponent_2.IOParentElement, childComponent_2.IOChildElement, io_game_1.IOgame, io_parentComponent_1.IOgameParent, io_childComponent_1.IOgameChild],
             bootstrap: [appComponent_1.AppComponent],
+            providers: [ioGameService_1.IOgameService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
