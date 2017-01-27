@@ -9,10 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-//@Injectable()
-//import {Injectable} from "@angular/core";
-var IOgameService = (function () {
-    function IOgameService() {
+var http_1 = require('@angular/http');
+// Import RxJs required methods
+require('rxjs/add/operator/map');
+require('rxjs/add/operator/catch');
+var GameService = (function () {
+    function GameService(_http) {
+        this._http = _http;
         this.saveGameData = [
             {
                 "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT8oL0tVOPZvi9lCopFfuxDv4U0w80trjT9D1_zcMiRsPMbYPXi8w",
@@ -28,12 +31,17 @@ var IOgameService = (function () {
                 "phrase": "Rowdy Rathore"
             }
         ];
+        var data = this._http.get("http://localhost:9999/income").map(function (res) { return res.json(); }).subscribe(function (data) {
+            console.log("prin", data);
+        }, function (error) { return console.log('Could not load todos.'); });
     }
-    IOgameService = __decorate([
+    GameService.prototype.getIncomeData = function () {
+    };
+    GameService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
-    ], IOgameService);
-    return IOgameService;
+        __metadata('design:paramtypes', [http_1.Http])
+    ], GameService);
+    return GameService;
 }());
-exports.IOgameService = IOgameService;
+exports.GameService = GameService;
 //# sourceMappingURL=ioGameService.js.map

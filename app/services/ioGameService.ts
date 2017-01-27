@@ -1,11 +1,26 @@
 import { Injectable } from "@angular/core";
+import { Http, Response} from '@angular/http';
+import {Observable} from 'rxjs/Rx';
 
-//@Injectable()
-//import {Injectable} from "@angular/core";
+// Import RxJs required methods
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
-@Injectable() 
 
-export class IOgameService {
+@Injectable()
+
+export class GameService {
+    
+    constructor(private _http: Http){
+      var data =  this._http.get("http://localhost:9999/income").map((res:Response) => res.json() ).subscribe(data => {
+          console.log("prin", data);
+    }, error => console.log('Could not load todos.'));
+        
+    }
+    public getIncomeData():any{
+    
+    }
+
     public saveGameData = [
         {
 		    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT8oL0tVOPZvi9lCopFfuxDv4U0w80trjT9D1_zcMiRsPMbYPXi8w",

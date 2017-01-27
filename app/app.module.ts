@@ -1,6 +1,8 @@
 import { NgModule }      from '@angular/core';
 import { RouterModule }   from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule }      from '@angular/http';
+
 
 
 import { AppComponent } from './appComponent';
@@ -28,8 +30,12 @@ import {IOgameParent} from './components/IO_memoryGame/io-parentComponent';
 import {IOgameChild} from './components/IO_memoryGame/io-childComponent';
 
 //import {AreaChartComponent} from './components/shared/charts/area-chart/AreaChartComponent';
+import {HttpBasicComponent} from './components/http_basics/httpBasicsComponent';
+import {HttpBasicMasterComponent} from './components/http_basics/httpBasicMasterComponent';
 
-import {IOgameService} from "./services/ioGameService";
+// services
+import {GameService} from "./services/ioGameService";
+import {HttpBasicsService} from "./services/HttpBasicsService"
 
 //lib or thirdParty
 //import { CHART_DIRECTIVES } from 'ng2-charts/ng2-charts';
@@ -41,6 +47,7 @@ import {IOgameService} from "./services/ioGameService";
 @NgModule({
   imports:      [
     BrowserModule,
+    HttpModule,
     //ChartsModule,
     RouterModule.forRoot([
       {'path':'', redirectTo:'login', pathMatch:'full'},
@@ -49,12 +56,13 @@ import {IOgameService} from "./services/ioGameService";
       {'path':'dashboard',component:DashboardComponent},
       {'path': 'inputOutput', component:InputOutput},
       {'path':'io-customEvent', component:IOcustomEvent},
-      {'path':'io-game', component:IOgame} 
+      {'path':'io-game', component:IOgame},
+      {'path': 'http-basics', component:HttpBasicMasterComponent }
     ])
  ],
   declarations: [ AppComponent, Login, Welcome, UserProfile, HeaderComponent, SidebarComponent, DashboardComponent,
-  InputOutput, ParentElement, ChildElement, IOcustomEvent, IOParentElement, IOChildElement, IOgame, IOgameParent, IOgameChild],
+  InputOutput, ParentElement, ChildElement, IOcustomEvent, IOParentElement, IOChildElement, IOgame, IOgameParent, IOgameChild, HttpBasicComponent, HttpBasicMasterComponent],
   bootstrap:    [ AppComponent ],
-  providers: [ IOgameService ]
+  providers: [ GameService, HttpBasicsService ]
 })
 export class AppModule { }

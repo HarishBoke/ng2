@@ -14,15 +14,14 @@ var IOgameParent = (function () {
     function IOgameParent(gameData) {
         this.gameData = gameData;
         this.setGameData = gameData.saveGameData;
-        console.log(this.setGameData);
     }
     IOgameParent = __decorate([
         core_1.Component({
             selector: "io-game-parent",
-            template: " <h3>This is parent  element </h3> <div class=\"jumbotron\">\n    <ul><li *ngFor=\"let obj of setGameData\">{{obj.phrase}}</li></ul>\n    <p>Printed Data from parent element  </p></div>\n     <io-game-child [getGameData]=\"setGameData\"></io-game-child>",
-            styles: [".jumbotron{ padding:10px;} .jumbotron p {padding:20px}"]
+            template: "<h3>Parent Component </h3> <div class=\"jumbotron\">\n    <h4>Movies list to match</h4>\n    <ul><li *ngFor=\"let obj of setGameData\">{{obj.phrase}}</li></ul>\n     <io-game-child [getGameData]=\"setGameData\"></io-game-child>",
+            styles: [".jumbotron{ padding:10px;} .jumbotron p {padding:20px} "]
         }), 
-        __metadata('design:paramtypes', [ioGameService_1.IOgameService])
+        __metadata('design:paramtypes', [ioGameService_1.GameService])
     ], IOgameParent);
     return IOgameParent;
 }());
