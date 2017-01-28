@@ -27,7 +27,7 @@ var HttpBasicComponent = (function () {
     HttpBasicComponent = __decorate([
         core_1.Component({
             selector: 'http-basic-get',
-            template: "<h2>Click button to get Data</h2> <button (click)=\"getIncomeData()\">Get Income Data</button> \n        <ul><li *ngFor=\"let objc of incomeData\">{{objc.receiptName}}</li></ul>"
+            template: "<h2>Click button to get Data</h2> <button (click)=\"getIncomeData()\">Get Income Data</button> \n        <ul class=\"list-group\"><li  class=\"list-group-item\" *ngFor=\"let objc of incomeData\">{{objc.receiptName}}</li></ul>"
         }), 
         __metadata('design:paramtypes', [HttpBasicsService_1.HttpBasicsService])
     ], HttpBasicComponent);

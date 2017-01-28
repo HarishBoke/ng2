@@ -4,7 +4,7 @@ import {HttpBasicsService} from "./../../services/HttpBasicsService";
 @Component({
     selector: 'http-basic-get',
     template: `<h2>Click button to get Data</h2> <button (click)="getIncomeData()">Get Income Data</button> 
-        <ul><li *ngFor="let objc of incomeData">{{objc.receiptName}}</li></ul>`
+        <ul class="list-group"><li  class="list-group-item" *ngFor="let objc of incomeData">{{objc.receiptName}}</li></ul>`
 })
 export class HttpBasicComponent{
     public incomeData:any = [];
